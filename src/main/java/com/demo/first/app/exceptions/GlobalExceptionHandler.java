@@ -12,7 +12,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     // Exception handling method
-    @ExceptionHandler({IllegalArgumentException.class, NullPointerException.class})
+    @ExceptionHandler({UserNotFoundException.class, IllegalArgumentException.class, NullPointerException.class})
     public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(Exception exception) {
         Map<String, Object> errorResponse = new HashMap<>();
         errorResponse.put("timestamp", LocalDateTime.now());
