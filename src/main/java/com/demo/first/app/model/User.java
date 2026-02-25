@@ -1,4 +1,4 @@
-package com.demo.first.app;
+package com.demo.first.app.model;
 // POJO --> Plain Old java objects (Ek esa class jo kisi bhi framework related class ko implement ya extend nhi karta h use kahte h POJO class)
 
 

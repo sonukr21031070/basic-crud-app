@@ -1,6 +1,7 @@
-package com.demo.first.app;
+package com.demo.first.app.service;
 
 
+import com.demo.first.app.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class UserService {
 
     public User updateUser(User user) {
         if(!userDb.containsKey(user.getId()))
-            return null;
+            throw new IllegalArgumentException("User with ID " + user.getId() + " does not exist");
         userDb.put(user.getId(), user);
         return user;
     }
@@ -32,6 +33,8 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
+        if(userDb.isEmpty())
+            throw new NullPointerException("No users found in the database");
         return new ArrayList<>(userDb.values());
     }
 
