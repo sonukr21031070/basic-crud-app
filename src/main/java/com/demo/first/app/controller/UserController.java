@@ -15,7 +15,6 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
     private UserService userService = new UserService();
-
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -95,14 +94,14 @@ public class UserController {
     }
 
     // Exception handling method
-    @ExceptionHandler({IllegalArgumentException.class, NullPointerException.class})
-    public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(Exception exception) {
-        Map<String, Object> errorResponse = new HashMap<>();
-        errorResponse.put("timestamp", LocalDateTime.now());
-        errorResponse.put("status", HttpStatus.BAD_REQUEST.value());
-        errorResponse.put("error", "Bad request");
-        errorResponse.put("message", exception.getMessage());
-        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
-    }
+//    @ExceptionHandler({IllegalArgumentException.class, NullPointerException.class})
+//    public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(Exception exception) {
+//        Map<String, Object> errorResponse = new HashMap<>();
+//        errorResponse.put("timestamp", LocalDateTime.now());
+//        errorResponse.put("status", HttpStatus.BAD_REQUEST.value());
+//        errorResponse.put("error", "Bad request");
+//        errorResponse.put("message", exception.getMessage());
+//        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+//    }
 }
 
